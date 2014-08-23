@@ -2,7 +2,7 @@ import pygame# as pygame
 import sys
 from pygame.locals import *
 
-class PyManMain:  
+class PyManMain:
     def __init__(self, width=640,height=480):
         pygame.init()
         self.width = width
@@ -13,13 +13,16 @@ class PyManMain:
         self.whiteColor = pygame.Color(255, 255, 255)
         self.mousex, self.mousey = 0, 0
 
+        self.catSurfaceObj = pygame.image.load('Assets/cat.png')
+
         self.fpsClock = pygame.time.Clock()
         self.fontObj = pygame.font.Font('freesansbold.ttf', 32)
         self.msg = "LD30 BITCH!"
-        self.soundObj = pygame.mixer.Sound('oww.wav')
+        self.soundObj = pygame.mixer.Sound('Assets/oww.wav')
 
         self.screen = pygame.display.set_mode((self.width, self.height))
     	pygame.display.set_caption('LD30 BITCH')
+
     def MainLoop(self):
 	    while True:
 	        self.screen.fill(self.whiteColor)
@@ -36,6 +39,8 @@ class PyManMain:
 	        		pixArr[x][y] = self.redColor
 	        del pixArr
 
+	        self.screen.blit(self.catSurfaceObj, (self.mousex, self.mousey))
+
 	        msgSurfaceObj = self.fontObj.render(self.msg, False, self.blueColor)
 	        msgRectobj = msgSurfaceObj.get_rect()
 	        msgRectobj.topleft = (10, 20)
@@ -46,9 +51,9 @@ class PyManMain:
 	        		pygame.quit()
 	        		sys.exit()
 	        	elif event.type == MOUSEMOTION:
-	        		mousex, mousey = event.pos
+	        		self.mousex, self.mousey = event.pos
 	        	elif event.type == MOUSEBUTTONUP:
-	        		mousex, mousey = event.pos
+	        		self.mousex, self.mousey = event.pos
 	        		self.soundObj.play()
 	        		if event.button in (1, 2, 3):
 	        			self.msg = 'left, middle, or right mouse click'
