@@ -1,5 +1,4 @@
-import pygame
-import sys
+import pygame, pytmx, sys
 from pygame.locals import *
 
 class PrismaJakeMain:
@@ -9,6 +8,13 @@ class PrismaJakeMain:
         self.height = 720
 
         self.mousex, self.mousey = 0, 0
+
+        #map data
+        tmx_data = pytmx.load_pygame("untitled.tmx")
+        map_data = pyscroll.TiledMapData(tmx_data)
+        screen_size = (self.width, self.height)
+        map_layer = pyscroll.BufferedRenderer(map_data, screen_size)
+        group = pyscroll.PyscrollGroup(map_layer=map_layer)
 
         #color data; not useful
         self.red_color = pygame.Color(255, 0, 0)
