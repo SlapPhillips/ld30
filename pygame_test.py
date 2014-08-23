@@ -42,13 +42,6 @@ class PyManMain:
 	        self.screen.blit(msgSurfaceObj, msgRectobj)
 
 	        for event in pygame.event.get():
-<<<<<<< HEAD
-	            if event.type == pygame.QUIT: 
-	                sys.exit()
-if __name__ == "__main__":
-    MainWindow = PyManMain()
-    MainWindow.MainLoop()
-=======
 	        	if event.type == QUIT:
 	        		pygame.quit()
 	        		sys.exit()
@@ -76,6 +69,3 @@ if __name__ == "__main__":
 if __name__ == "__main__":
  	MainWindow = PyManMain()
 	MainWindow.MainLoop()
-
-
->>>>>>> FETCH_HEAD
