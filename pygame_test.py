@@ -27,8 +27,6 @@ class PyManMain:
 	    while True:
 	        self.screen.fill(self.whiteColor)
 
-	        pygame.draw.circle(self.screen, self.blueColor, (self.width/2, self.height/2), 20, 0)
-	        pygame.draw.line(self.screen, self.blueColor, (self.width/2, self.height/2), (self.mousex, self.mousey), 4)
 
 	        pixArr = pygame.PixelArray(self.screen)
 	        for x in range(100, 200, 4):

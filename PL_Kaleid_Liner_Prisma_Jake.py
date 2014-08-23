@@ -30,13 +30,10 @@ class PrismaJakeMain:
 
     def MainLoop(self):
 	    while True:
-	        self.screen.fill(self.black_color)
+	        self.screen.fill(self.whiteColor)
 
-	        pygame.draw.polygon(self.screen, self.greenColor, ((146, 0), (291, 106), (236, 277), (56, 277), (0, 106)))
-	        pygame.draw.circle(self.screen, self.blueColor, (300, 50), 20, 0)
-	        pygame.draw.ellipse(self.screen, self.redColor, (300, 250, 40, 80), 1)
-	        pygame.draw.rect(self.screen, self.redColor, (10, 10, 50, 100))
-	        pygame.draw.line(self.screen, self.blueColor, (60, 160), (120, 60), 4)
+	        pygame.draw.circle(self.screen, self.blueColor, (self.width/2, self.height/2), 20, 0)
+	        pygame.draw.line(self.screen, self.blueColor, (self.width/2, self.height/2), (self.mousex, self.mousey), 4)
 
 	        pixArr = pygame.PixelArray(self.screen)
 	        for x in range(100, 200, 4):
@@ -44,7 +41,7 @@ class PrismaJakeMain:
 	        		pixArr[x][y] = self.redColor
 	        del pixArr
 
-	        self.screen.blit(self.catSurfaceObj, (self.mousex, self.mousey))
+	        #self.screen.blit(self.catSurfaceObj, (self.mousex, self.mousey))
 
 	        msgSurfaceObj = self.fontObj.render(self.msg, False, self.blueColor)
 	        msgRectobj = msgSurfaceObj.get_rect()
