@@ -5,66 +5,66 @@ from pygame.locals import *
 class PyManMain:
     def __init__(self, width=640,height=480):
         pygame.init()
-        self.width = width
-        self.height = height
-        self.redColor = pygame.Color(255, 0, 0)
-        self.greenColor = pygame.Color(0, 255, 0)
-        self.blueColor = pygame.Color(0, 0, 255)
-        self.whiteColor = pygame.Color(255, 255, 255)
-        self.mousex, self.mousey = 0, 0
+        pygamewidth = width
+        pygameheight = height
+        pygameredColor = pygame.Color(255, 0, 0)
+        pygamegreenColor = pygame.Color(0, 255, 0)
+        pygameblueColor = pygame.Color(0, 0, 255)
+        pygamewhiteColor = pygame.Color(255, 255, 255)
+        pygamemousex, pygamemousey = 0, 0
 
-        self.catSurfaceObj = pygame.image.load('Assets/cat.png')
+        pygamecatSurfaceObj = pygame.image.load('Assets/cat.png')
 
-        self.fpsClock = pygame.time.Clock()
-        self.fontObj = pygame.font.Font('freesansbold.ttf', 32)
-        self.msg = "LD30 BITCH!"
-        self.soundObj = pygame.mixer.Sound('Assets/oww.wav')
+        pygamefpsClock = pygame.time.Clock()
+        pygamefontObj = pygame.font.Font('freesansbold.ttf', 32)
+        pygamemsg = "LD30 BITCH!"
+        pygamesoundObj = pygame.mixer.Sound('Assets/oww.wav')
 
-        self.screen = pygame.display.set_mode((self.width, self.height))
+        pygamescreen = pygame.display.set_mode((pygamewidth, pygameheight))
     	pygame.display.set_caption('LD30 BITCH')
 
     def MainLoop(self):
 	    while True:
-	        self.screen.fill(self.whiteColor)
+	        pygamescreen.fill(pygamewhiteColor)
 
 
-	        pixArr = pygame.PixelArray(self.screen)
+	        pixArr = pygame.PixelArray(pygamescreen)
 	        for x in range(100, 200, 4):
 	        	for y in range(100, 200, 4):
-	        		pixArr[x][y] = self.redColor
+	        		pixArr[x][y] = pygameredColor
 	        del pixArr
 
-	        self.screen.blit(self.catSurfaceObj, (self.mousex, self.mousey))
+	        pygamescreen.blit(pygamecatSurfaceObj, (pygamemousex, pygamemousey))
 
-	        msgSurfaceObj = self.fontObj.render(self.msg, False, self.blueColor)
+	        msgSurfaceObj = pygamefontObj.render(pygamemsg, False, pygameblueColor)
 	        msgRectobj = msgSurfaceObj.get_rect()
 	        msgRectobj.topleft = (10, 20)
-	        self.screen.blit(msgSurfaceObj, msgRectobj)
+	        pygamescreen.blit(msgSurfaceObj, msgRectobj)
 
 	        for event in pygame.event.get():
 	        	if event.type == QUIT:
 	        		pygame.quit()
 	        		sys.exit()
 	        	elif event.type == MOUSEMOTION:
-	        		self.mousex, self.mousey = event.pos
+	        		pygamemousex, pygamemousey = event.pos
 	        	elif event.type == MOUSEBUTTONUP:
-	        		self.mousex, self.mousey = event.pos
-	        		self.soundObj.play()
+	        		pygamemousex, pygamemousey = event.pos
+	        		pygamesoundObj.play()
 	        		if event.button in (1, 2, 3):
-	        			self.msg = 'left, middle, or right mouse click'
+	        			pygamemsg = 'left, middle, or right mouse click'
 	        		elif event.button in (4, 5):
-	        			self.msg = 'mouse scrolled up or down'
+	        			pygamemsg = 'mouse scrolled up or down'
 
 	        	elif event.type == KEYDOWN:
 	        		if event.key in (K_LEFT, K_RIGHT, K_UP, K_DOWN):
-	        			self.msg = 'Arrow key pressed.'
+	        			pygamemsg = 'Arrow key pressed.'
 	        		if event.key == K_a:
-	        			self.msg = '"A" key pressed'
+	        			pygamemsg = '"A" key pressed'
 	        		if event.key == K_ESCAPE:
 	        			pygame.event.post(pygame.event.Event(QUIT))
 
 		pygame.display.update()
-		self.fpsClock.tick(30)
+		pygamefpsClock.tick(30)
 
 if __name__ == "__main__":
  	MainWindow = PyManMain()
