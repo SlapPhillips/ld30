@@ -34,7 +34,7 @@ class PyManMain:
 	        for x in range(100, 200, 4):
 	        	for y in range(100, 200, 4):
 	        		pixArr[x][y] = self.redColor
-	        	del pixArr
+	        del pixArr
 
 	        msgSurfaceObj = self.fontObj.render(self.msg, False, self.blueColor)
 	        msgRectobj = msgSurfaceObj.get_rect()
@@ -47,7 +47,7 @@ class PyManMain:
 	        		sys.exit()
 	        	elif event.type == MOUSEMOTION:
 	        		mousex, mousey = event.pos
-	        	elif event.tyoe == MOUSEBUTTONUP:
+	        	elif event.type == MOUSEBUTTONUP:
 	        		mousex, mousey = event.pos
 	        		self.soundObj.play()
 	        		if event.button in (1, 2, 3):
@@ -64,7 +64,7 @@ class PyManMain:
 	        			pygame.event.post(pygame.event.Event(QUIT))
 
 		pygame.display.update()
-		fpsClock.tick(30)
+		self.fpsClock.tick(30)
 
 if __name__ == "__main__":
  	MainWindow = PyManMain()
