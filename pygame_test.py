@@ -16,8 +16,6 @@ class PyManMain:
 	        for event in pygame.event.get():
 	            if event.type == pygame.QUIT: 
 	                sys.exit()
-    if __name__ == "__main__":
- 		MainWindow = PyManMain()
-		MainWindow.MainLoop()
-
-
+if __name__ == "__main__":
+    MainWindow = PyManMain()
+    MainWindow.MainLoop()
