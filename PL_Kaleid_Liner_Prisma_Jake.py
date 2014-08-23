@@ -10,7 +10,7 @@ class PrismaJakeMain:
         self.mousex, self.mousey = 0, 0
 
         #map data
-        tmx_data = pytmx.load_pygame("untitled.tmx")
+        tmx_data = pytmx.load_pygame("Assets/tileset/untitled.tmx")
         map_data = pyscroll.TiledMapData(tmx_data)
         screen_size = (self.width, self.height)
         map_layer = pyscroll.BufferedRenderer(map_data, screen_size)
