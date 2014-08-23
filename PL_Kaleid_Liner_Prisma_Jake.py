@@ -37,7 +37,7 @@ class PrismaJakeMain:
 
 	        #self.screen.blit(self.catSurfaceObj, (self.mousex, self.mousey))
 
-	        msg_surface_obj = self.font_obj.render(self.msg, False, self.blueColor)
+	        msg_surface_obj = self.font_obj.render(self.msg, False, self.blue_color)
 	        msg_rect_obj = msg_surface_obj.get_rect()
 	        msg_rect_obj.topleft = (10, 20)
 	        self.screen.blit(msg_surface_obj, msg_rect_obj)
