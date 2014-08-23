@@ -5,28 +5,32 @@ from pygame.locals import *
 class PrismaJakeMain:
     def __init__(self):
         pygame.init()
-        self.width = 640
-        self.height = 480
+        self.width = 1280
+        self.height = 720
 
+        self.mousex, self.mousey = 0, 0
+
+        #color data; not useful
         self.redColor = pygame.Color(255, 0, 0)
         self.greenColor = pygame.Color(0, 255, 0)
         self.blueColor = pygame.Color(0, 0, 255)
         self.whiteColor = pygame.Color(255, 255, 255)
-        self.mousex, self.mousey = 0, 0
+        self.black_color = pygame.Color(0, 0, 0)
 
-        self.catSurfaceObj = pygame.image.load('Assets/cat.png')
+        #self.example_image = pygame.image.load('Assets/cat.png')
 
         self.fpsClock = pygame.time.Clock()
-        self.fontObj = pygame.font.Font('freesansbold.ttf', 32)
-        self.msg = "LD30 BITCH!"
-        self.soundObj = pygame.mixer.Sound('Assets/oww.wav')
+        self.fontObj = pygame.font.Font('freesansbold.ttf', 32) #have fang pick a font
+        self.msg = "Begin!"
+        self.soundObj = pygame.mixer.Sound('Assets/oww.wav') #change
 
-        self.screen = pygame.display.set_mode((self.width, self.height))
-    	pygame.display.set_caption('LD30 BITCH')
+        self.screen = pygame.display.set_mode((self.width, self.height), FULLSCREEN)
+    	self.width , self.height = self.screen.get_size()
+    	pygame.display.set_caption('Pilot Light/kaleid liner Prisma Jake')
 
     def MainLoop(self):
 	    while True:
-	        self.screen.fill(self.whiteColor)
+	        self.screen.fill(self.black_color)
 
 	        pygame.draw.polygon(self.screen, self.greenColor, ((146, 0), (291, 106), (236, 277), (56, 277), (0, 106)))
 	        pygame.draw.circle(self.screen, self.blueColor, (300, 50), 20, 0)
