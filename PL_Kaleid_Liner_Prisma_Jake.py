@@ -16,10 +16,7 @@ def __init__():
     group = pyscroll.PyscrollGroup(map_layer=map_layer)
 
     #color data; not useful
-    red_color = pygame.Color(255, 0, 0)
-    green_color = pygame.Color(0, 255, 0)
     blue_color = pygame.Color(0, 0, 255)
-    white_color = pygame.Color(255, 255, 255)
     black_color = pygame.Color(0, 0, 0)
 
     #example_image = pygame.image.load('Assets/cat.png')
@@ -44,7 +41,7 @@ def MainLoop():
 
         msg_surface_obj = font_obj.render(msg, False, blue_color)
         msg_rect_obj = msg_surface_obj.get_rect()
-        msg_rect_obj.topleft = (10, 20)
+        msg_rect_obj.topleft = (50, 50)
         screen.blit(msg_surface_obj, msg_rect_obj)
 
         for event in pygame.event.get():
